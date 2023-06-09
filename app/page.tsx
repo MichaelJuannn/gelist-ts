@@ -1,4 +1,5 @@
 import { prisma } from './utils/client';
+import { Form } from './components/Form';
 
 async function getEvent() {
 	const eventResponse = await prisma.event.count();
@@ -7,5 +8,11 @@ async function getEvent() {
 
 export default function Home() {
 	getEvent();
-	return <>Hello</>;
+	return (
+		<>
+			<div>
+				<Form />
+			</div>
+		</>
+	);
 }
