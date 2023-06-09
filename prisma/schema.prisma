@@ -23,8 +23,9 @@ model Event {
 
 model Member {
  id Int @id @default(autoincrement())
- events Event @relation(fields: [eventsId], references: [id])
  eventsId Int
+ name String
+ events Event @relation(fields: [eventsId], references: [id])
 
 
  @@index([eventsId])
