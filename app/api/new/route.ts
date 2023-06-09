@@ -1,18 +1,21 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/app/utils/client';
 import { randomBytes } from 'crypto';
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
 	const data = await request.json();
+	const slug = randomBytes(10).toString('hex');
 	try {
 		const event = await prisma.event.create({
 			data: {
-				slug: randomBytes(10).toString('hex'),
+				slug: slug,
 				title: data.title,
 				creator: data.creator,
 			},
 		});
-		console.log(data);
-		return new NextResponse(data);
-	} catch (error) {}
+		return NextResponse.json({ slug: slug });
+	} catch (error) {
+		console.log(error);
+		return new NextResponse('eror');
+	}
 }

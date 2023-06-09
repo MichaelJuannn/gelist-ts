@@ -1,7 +1,9 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { FormEvent, useState } from 'react';
 export function Form() {
+	const router = useRouter();
 	const [title, setTitle] = useState('');
 	const [creator, setCreator] = useState('');
 	const [date, setDate] = useState('');
@@ -14,7 +16,8 @@ export function Form() {
 			},
 			body: JSON.stringify({ title: title, creator: creator, date: date }),
 		});
-		e.preventDefault();
+		const response = await data.json();
+		router.push(response.slug);
 	}
 	return (
 		<div>
