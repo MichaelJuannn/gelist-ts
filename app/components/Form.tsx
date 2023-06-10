@@ -20,18 +20,23 @@ export function Form() {
 		router.push(response.slug);
 	}
 	return (
-		<div>
+		<div className='flex flex-col items-center'>
 			<div>
-				<label htmlFor='title'>Title</label>
+				<label htmlFor='title' className='block'>
+					Title
+				</label>
 				<input
 					type='text'
 					id='title'
 					placeholder='Title'
 					onChange={(e) => setTitle(e.currentTarget.value)}
+					className=''
 				/>
 			</div>
 			<div>
-				<label htmlFor='creator'>Creator</label>
+				<label htmlFor='creator' className='block'>
+					Creator
+				</label>
 				<input
 					type='text'
 					id='creator'
@@ -40,14 +45,19 @@ export function Form() {
 				/>
 			</div>
 			<div>
-				<label htmlFor='date'>Date</label>
+				<label htmlFor='date' className='block'>
+					Date
+				</label>
 				<input
 					type='date'
 					id='date'
 					onChange={(e) => setDate(e.currentTarget.value)}
 				/>
 			</div>
-			<button className='bg-purple-700 p-2 rounded' onClick={submitForm}>
+			<button
+				className='bg-violet-700 p-3 rounded max-w-fit'
+				onClick={submitForm}
+			>
 				Submit
 			</button>
 		</div>
