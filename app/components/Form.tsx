@@ -35,7 +35,6 @@ export function Form() {
 			<div>
 				<Label htmlFor='title'>Title</Label>
 				<Input
-					required
 					type='text'
 					id='title'
 					placeholder='Title'
@@ -46,7 +45,6 @@ export function Form() {
 			<div>
 				<Label htmlFor='creator'>Creator</Label>
 				<Input
-					required
 					type='text'
 					id='creator'
 					placeholder='Creator'
@@ -56,7 +54,6 @@ export function Form() {
 			<div>
 				<Label htmlFor='date'>Date</Label>
 				<Input
-					required
 					type='date'
 					id='date'
 					onChange={(e) => setDate(e.currentTarget.value)}
