@@ -60,7 +60,9 @@ export function Form() {
 				/>
 			</div>
 			{isLoading ? (
-				<ButtonLoading />
+				<div className='mt-2'>
+					<ButtonLoading />
+				</div>
 			) : (
 				<Button
 					type='submit'
