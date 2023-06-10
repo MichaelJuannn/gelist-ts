@@ -1,4 +1,4 @@
-import { prisma } from '@/app/utils/client';
+import { prisma } from '@/lib/client';
 import { MemberForm } from '@/app/components/MemberForm';
 
 async function getEvent(slug: string) {

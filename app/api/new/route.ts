@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/app/utils/client';
+import { prisma } from '@/lib/client';
 import { randomBytes } from 'crypto';
 
 export async function POST(request: NextRequest) {

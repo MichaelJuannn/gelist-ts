@@ -1,4 +1,4 @@
-import { prisma } from './utils/client';
+import { prisma } from '../lib/client';
 import { Form } from './components/Form';
 
 async function getEvent() {
@@ -7,7 +7,6 @@ async function getEvent() {
 }
 
 export default function Home() {
-	getEvent();
 	return (
 		<>
 			<div>
