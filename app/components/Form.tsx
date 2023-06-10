@@ -22,8 +22,12 @@ export function Form() {
 			},
 			body: JSON.stringify({ title: title, creator: creator, date: date }),
 		});
+		console.log(data);
+		if (!data.ok) {
+			setisLoading(false);
+			return alert('Try Again Later');
+		}
 		const response = await data.json();
-		setisLoading(!isLoading);
 		router.push(response.slug);
 	}
 	return (

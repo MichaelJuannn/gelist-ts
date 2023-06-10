@@ -15,7 +15,6 @@ export async function POST(request: NextRequest) {
 		});
 		return NextResponse.json({ slug: slug });
 	} catch (error) {
-		console.log(error);
-		return new NextResponse('eror');
+		return NextResponse.error();
 	}
 }

@@ -7,6 +7,7 @@ async function getEvent() {
 }
 
 export default function Home() {
+	getEvent();
 	return (
 		<>
 			<div>
