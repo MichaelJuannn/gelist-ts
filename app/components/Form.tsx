@@ -13,6 +13,7 @@ export function Form() {
 	const [isLoading, setisLoading] = useState(false);
 
 	async function submitForm(e: FormEvent) {
+		if (!title || !creator || !date) return alert('Fill the form you retard');
 		setisLoading(true);
 		const data = await fetch('/api/new', {
 			method: 'POST',
@@ -22,13 +23,15 @@ export function Form() {
 			body: JSON.stringify({ title: title, creator: creator, date: date }),
 		});
 		const response = await data.json();
+		setisLoading(!isLoading);
 		router.push(response.slug);
 	}
 	return (
-		<div className='m-3 max-w-lg mx-auto'>
-			<div className=''>
+		<form className='m-3 max-w-lg mx-auto'>
+			<div>
 				<Label htmlFor='title'>Title</Label>
 				<Input
+					required
 					type='text'
 					id='title'
 					placeholder='Title'
@@ -39,6 +42,7 @@ export function Form() {
 			<div>
 				<Label htmlFor='creator'>Creator</Label>
 				<Input
+					required
 					type='text'
 					id='creator'
 					placeholder='Creator'
@@ -48,6 +52,7 @@ export function Form() {
 			<div>
 				<Label htmlFor='date'>Date</Label>
 				<Input
+					required
 					type='date'
 					id='date'
 					onChange={(e) => setDate(e.currentTarget.value)}
@@ -56,10 +61,14 @@ export function Form() {
 			{isLoading ? (
 				<ButtonLoading />
 			) : (
-				<Button className='bg-violet-700 max-w-fit mt-2' onClick={submitForm}>
+				<Button
+					type='submit'
+					className='bg-violet-700 max-w-fit mt-2'
+					onClick={submitForm}
+				>
 					Submit
 				</Button>
 			)}
-		</div>
+		</form>
 	);
 }
